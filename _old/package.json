@@ -1,0 +1,19 @@
+{
+  "name": "what-does-the-cat-dream-about",
+  "version": "1.0.0",
+  "description": "Игра \"О чем мечтает котик?\"",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Sagittarius87/What-does-the-cat-dream-about.git"
+  },
+  "author": "Рыков Ярослав Александрович",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sagittarius87/What-does-the-cat-dream-about/issues"
+  },
+  "homepage": "https://github.com/Sagittarius87/What-does-the-cat-dream-about#readme"
+}

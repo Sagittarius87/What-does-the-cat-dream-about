@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*
+    box-sizing: border-box;
+    */
+}
+
+body {
+    color: white;
+    background-color: lightblue;
+}
+
+.wrapper {
+    
+    
+    width: 100vw;
+    height: 100vh;
+    /*
+    flex-wrap: wrap;
+    */
+    
+    /*
+    height: 100vh;
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    */
+    /*
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    */
+}
+
+.logo {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    align-items: center;
+}
+
+.mainImage {
+    width: 150px;
+    height: 150px;
+    
+    background-color: white;
+}
+
+.mainForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.buttonNewGame {
+    /*
+    margin-left: auto;
+    margin-right: auto;
+    */
+    /*
+    margin-top: 50%;
+    margin-bottom: 50%;
+    */
+    display: flex;
+    
+}
+
+.newGameUI {
+    display: none;
+}
+

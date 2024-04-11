@@ -1,9 +1,12 @@
 import { Scene } from 'phaser';
+import { CustomizableButton } from './СustomizableButton';
 
 const LOGO_KEY = 'logo';
 const PORTRAIT_KEY = 'portrait';
-const BUTTON_KEY = 'buttonNewGame'
-
+const BUTTON_UP_KEY = 'buttonNewGame';
+const BUTTON_OVER_KEY = 'buttonNewGame1';
+const BUTTON_CLICK_KEY = 'buttonNewGame2';
+const BUTTON_NAME = 'Начать';
 
 export class MainMenu extends Scene
 {
@@ -19,8 +22,9 @@ export class MainMenu extends Scene
        
         this.add.image(width / 2, 60, LOGO_KEY);
         this.add.image(width / 2, 210, PORTRAIT_KEY);
-    
 
+        const buttonNewGame = new CustomizableButton(this, width / 2, height / 2, BUTTON_NAME, BUTTON_UP_KEY, BUTTON_OVER_KEY, BUTTON_CLICK_KEY);
+        this.add.existing(buttonNewGame);
 
         /*
         this.add.text(512, 460, 'Main Menu', {

@@ -25,6 +25,10 @@ export class MainMenu extends Scene
 
         const buttonNewGame = new CustomizableButton(this, width / 2, height / 2, TEXT_FOR_BUTTON, BUTTON_UP_KEY, BUTTON_OVER_KEY, BUTTON_CLICK_KEY);
         this.add.existing(buttonNewGame);
+        buttonNewGame.setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, () => {
+            this.scene.start('Game')
+            console.log('start game')
+        });
 
         /*
         this.add.text(512, 460, 'Main Menu', {

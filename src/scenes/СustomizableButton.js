@@ -36,13 +36,23 @@ export class CustomizableButton extends Phaser.GameObjects.Container
 
         this.setInteractive()
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_OVER, () => {
+                this.upImage.setVisible(false)
+                this.overImage.setVisible(true)
                 console.log('mouse over')
             })
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_OUT, () => {
+                this.upImage.setVisible(true)
+                this.overImage.setVisible(false)
                 console.log('mouse out')
             })
             .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-                console.log('mouse click')
+                this.overImage.setVisible(false)
+                this.clickImage.setVisible(true)
+                console.log('mouse click down')
+            }).on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, () => {
+                this.overImage.setVisible(true)
+                this.clickImage.setVisible(false)
+                console.log('mouse click up')
             });
     }
 }

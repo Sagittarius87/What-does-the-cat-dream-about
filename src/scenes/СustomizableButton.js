@@ -2,7 +2,7 @@ import Phaser from "phaser";
 
 export class CustomizableButton extends Phaser.GameObjects.Container
 {
-    text;
+    buttonText;
     upImage;
     overImage;
     clickImage;
@@ -19,15 +19,15 @@ export class CustomizableButton extends Phaser.GameObjects.Container
         this.overTexture = overTexture;
         this.clickTexture = clickTexture;
 
-        this.text = scene.add.text(0, 0, this.buttonName, { fontFamily: 'Arial Black', fontSize: 38, color: '#000000', align: 'center' }).setOrigin(0.5);
+        this.buttonText = scene.add.text(0, 0, this.buttonName, { fontFamily: 'Arial Black', fontSize: 38, color: '#000000', align: 'center' }).setOrigin(0.5);
         this.upImage = scene.add.image(0, 0, this.upTexture);
         this.overImage = scene.add.image(0, 0, this.overTexture);
         this.clickImage = scene.add.image(0, 0, this.clickTexture);
-
-        this.add(this.text);
+        
         this.add(this.upImage);
         this.add(this.overImage);
         this.add(this.clickImage);
+        this.add(this.buttonText);
 
         this.overImage.setVisible(false);
         this.clickImage.setVisible(false);

@@ -52,6 +52,8 @@ export class Preloader extends Scene
         this.load.image('buttonNewGame2', 'buttonNewGame2.png');
         this.load.image('buttonNewGame1', 'buttonNewGame1.png');
         this.load.image('buttonNewGame', 'buttonNewGame.png');
+
+        this.load.bitmapFont('PixeloidSans38', 'fonts/PixeloidSans38/PixeloidSans38.png', 'fonts/PixeloidSans38/PixeloidSans38.xml');
         
         console.log('assets is loaded');
     }

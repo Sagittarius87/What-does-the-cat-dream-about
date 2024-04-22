@@ -39,14 +39,14 @@ export class Game extends Scene
     createGameMessage(x, y) 
     {
         const message = ['Как думаете, о чем сейчас мечтает котик?'];
-        const style = { fontSize: '32px', fill: '#000' };
+        const style = { fontFamily: 'PixeloidSans', fontSize: '38px', fill: '#ffffff' };
         const newMessage = new GameMessage(this, x, y, message[0], style);      
         return newMessage;
     }
 
     createScoreLabel(x, y)
     {
-        const style = { fontSize: '32px', fill: '#000' };
+        const style = { fontFamily: 'PixeloidSans', fontSize: '38px', fill: '#ffffff' };
         const newScore = new ScoreLabel(this, x, y, 0, style);
         return newScore;
     }

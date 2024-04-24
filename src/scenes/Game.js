@@ -1,6 +1,11 @@
 import { Scene } from 'phaser';
 import { GameMessage } from './GameMessage';
 import { ScoreLabel } from './ScoreLabel';
+import { PortraitChange } from './portraitChange';
+
+const CAT_IS_WAITING_KEY = 'catIsWaiting';
+const CAT_IS_HAPPY_KEY = 'catIsHappy';
+const CAT_IS_DISAPPOINTED_KEY = 'catIsDisappointed';
 
 export class Game extends Scene
 {
@@ -16,6 +21,9 @@ export class Game extends Scene
 
         this.scoreLabel = this.createScoreLabel(1180, 50);
         this.add.existing(this.scoreLabel);
+
+        this.catPortrait = this.createCatPortrait(640, 250);
+        this.add.existing(this.catPortrait);
 
 
 
@@ -51,5 +59,11 @@ export class Game extends Scene
         //const style = { fontFamily: 'PixeloidSans', fontSize: '38px', fill: '#ffffff' };
         const newScore = new ScoreLabel(this, x, y, nameFont, 0);
         return newScore;
+    }
+
+    createCatPortrait(x, y)
+    {
+        const newPortrait = new PortraitChange(this, x, y, CAT_IS_WAITING_KEY, CAT_IS_HAPPY_KEY, CAT_IS_DISAPPOINTED_KEY);
+        return newPortrait;
     }
 }

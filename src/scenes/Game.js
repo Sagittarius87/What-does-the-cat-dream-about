@@ -2,10 +2,12 @@ import { Scene } from 'phaser';
 import { GameMessage } from './GameMessage';
 import { ScoreLabel } from './ScoreLabel';
 import { PortraitChange } from './portraitChange';
+import { GameCards } from './GameCards';
 
 const CAT_IS_WAITING_KEY = 'catIsWaiting';
 const CAT_IS_HAPPY_KEY = 'catIsHappy';
 const CAT_IS_DISAPPOINTED_KEY = 'catIsDisappointed';
+let cards = ['card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9'];
 
 export class Game extends Scene
 {
@@ -24,6 +26,16 @@ export class Game extends Scene
 
         this.catPortrait = this.createCatPortrait(640, 250);
         this.add.existing(this.catPortrait);
+
+        //this.threeCards = this.createGameCards(430, 350, 640, 350, 850, 350, cards, 5);
+        this.threeCards = this.createGameCards(430, 550, cards[0]);
+        this.add.existing(this.threeCards);
+
+        this.threeCards = this.createGameCards(640, 550, cards[1]);
+        this.add.existing(this.threeCards);
+
+        this.threeCards = this.createGameCards(850, 550, cards[2]);
+        this.add.existing(this.threeCards);
 
 
 
@@ -65,5 +77,17 @@ export class Game extends Scene
     {
         const newPortrait = new PortraitChange(this, x, y, CAT_IS_WAITING_KEY, CAT_IS_HAPPY_KEY, CAT_IS_DISAPPOINTED_KEY);
         return newPortrait;
+    }
+
+    createGameCards(x, y, card)
+    {   
+        const newCards = new GameCards(this, x, y, card);
+        //console.log(`New random number: ${randomNumber}`);
+        return newCards;
+    }
+
+    generatorOfRandomNumber(min, max)
+    {
+
     }
 }

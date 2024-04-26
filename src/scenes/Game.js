@@ -3,6 +3,7 @@ import { GameMessage } from './GameMessage';
 import { ScoreLabel } from './ScoreLabel';
 import { PortraitChange } from './portraitChange';
 import { GameCards } from './GameCards';
+import { Math } from 'phaser';
 
 const CAT_IS_WAITING_KEY = 'catIsWaiting';
 const CAT_IS_HAPPY_KEY = 'catIsHappy';
@@ -82,12 +83,13 @@ export class Game extends Scene
     createGameCards(x, y, card)
     {   
         const newCards = new GameCards(this, x, y, card);
-        //console.log(`New random number: ${randomNumber}`);
+        console.log(`New random number: ${this.generatorOfRandomNumber(1, 9)}`);
         return newCards;
     }
 
     generatorOfRandomNumber(min, max)
-    {
-
+    {   
+        const randomNumber = Math.Between(min, max);
+        return randomNumber;
     }
 }

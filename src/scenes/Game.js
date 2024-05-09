@@ -9,12 +9,18 @@ const CAT_IS_WAITING_KEY = 'catIsWaiting';
 const CAT_IS_HAPPY_KEY = 'catIsHappy';
 const CAT_IS_DISAPPOINTED_KEY = 'catIsDisappointed';
 let cards = ['card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9'];
+let newGame = false
 
 export class Game extends Scene
 {
     constructor ()
     {
         super('Game');
+    }
+
+    init () 
+    {
+        
     }
 
     create ()
@@ -29,14 +35,21 @@ export class Game extends Scene
         this.add.existing(this.catPortrait);
 
         //this.threeCards = this.createGameCards(430, 350, 640, 350, 850, 350, cards, 5);
-        this.threeCards = this.createGameCards(430, 550, cards[0]);
-        this.add.existing(this.threeCards);
+        newGame = true
 
-        this.threeCards = this.createGameCards(640, 550, cards[1]);
-        this.add.existing(this.threeCards);
+        const threeRandomCards = this.selectionThreeRandomCards(cards)
+        console.log(`Three random cards: ${threeRandomCards}`)
 
-        this.threeCards = this.createGameCards(850, 550, cards[2]);
-        this.add.existing(this.threeCards);
+        if (newGame == true) {
+            this.threeCards = this.createGameCards(430, 550, threeRandomCards[0]);
+            this.add.existing(this.threeCards);
+
+            this.threeCards = this.createGameCards(640, 550, threeRandomCards[1]);
+            this.add.existing(this.threeCards);
+
+            this.threeCards = this.createGameCards(850, 550, threeRandomCards[2]);
+            this.add.existing(this.threeCards);
+        }
 
 
 
@@ -54,7 +67,7 @@ export class Game extends Scene
 
     update ()
     {
-
+       
     }
 
     createGameMessage(x, y) 
@@ -82,9 +95,26 @@ export class Game extends Scene
 
     createGameCards(x, y, card)
     {   
-        const newCards = new GameCards(this, x, y, card);
-        console.log(`New random number: ${this.generatorOfRandomNumber(1, 9)}`);
+        //const cardIndex = this.generatorOfRandomNumber(1, 9);
+        //console.log(`New random number: ${cardIndex}`);
+        //const newCards = new GameCards(this, x, y, cards[cardIndex]);
+        console.log(`New random number: ${card}`);
+        const newCards = new GameCards(this, x, y, cards[card]);
         return newCards;
+    }
+
+    selectionThreeRandomCards(cards)
+    {
+        let threeCards = [];
+        for (let i = 0; i < 3; i++) {
+            let indexOfCard = this.generatorOfRandomNumber(0, 8);
+            threeCards.push(indexOfCard);
+            console.log(`i: ${i}`)
+            console.log(`Three cards: ${threeCards}`);
+            console.log(`Index of random card: ${indexOfCard}`);
+            console.log(`Map found by index: ${cards.at(indexOfCard)}`);
+        }
+        return threeCards;
     }
 
     generatorOfRandomNumber(min, max)

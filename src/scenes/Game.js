@@ -126,6 +126,13 @@ export class Game extends Scene
             console.log(`indexesOfThreeCards: ${indexesOfThreeCards}`);
             console.log('---------------------------------------------');
         }
+        
+        console.log('-----Choosing a hidden card-----');
+        let indexOfHiddenCard = this.generatorOfRandomNumber(0, 2);
+        console.log(`indexOfHiddenCard: ${indexOfHiddenCard}`);
+        let hiddenCard = indexesOfThreeCards[indexOfHiddenCard];
+        console.log(`hiddenCard: ${hiddenCard}`);
+        console.log('--------------------------------'); 
         return indexesOfThreeCards;
     }
 

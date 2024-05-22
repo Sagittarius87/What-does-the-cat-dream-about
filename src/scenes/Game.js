@@ -107,23 +107,24 @@ export class Game extends Scene
     {
         let indexesOfThreeCards = [];
         let indexesOfCards = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        
         for (let i = 0; indexesOfThreeCards.length < 3; i++) {
             console.log(`-----Generate three random card number ${i}-----`);
+            console.log(`indexesOfCards: ${indexesOfCards}`);
             let randomCardIndex = this.generatorOfRandomNumber(0, 8);
+            console.log(`randomCardIndex: ${randomCardIndex}`);
             console.log(`indexesOfCards.includes(randomCardIndex): ${indexesOfCards.includes(randomCardIndex)}`);
+            console.log(`Card found by index: ${cards.at(randomCardIndex)}`);
             if (indexesOfCards.includes(randomCardIndex)) {
                 indexesOfThreeCards.push(randomCardIndex);
                 let indexOfRandomCard = indexesOfCards.indexOf(randomCardIndex);
                 console.log(`indexOfRandomCard: ${indexOfRandomCard}`);
                 indexesOfCards.splice(indexOfRandomCard, 1);  
             }
-            console.log(`indexesOfThreeCards: ${indexesOfThreeCards}`);
-            console.log(`indexesOfCards: ${indexesOfCards}`);
-            console.log(`randomCardIndex: ${randomCardIndex}`);
             console.log(`New indexesOfCards: ${indexesOfCards}`);
             console.log(`Three cards length: ${indexesOfThreeCards.length}`);
-            console.log(`Map found by index: ${cards.at(randomCardIndex)}`);
-            console.log('------------------------------------------------');
+            console.log(`indexesOfThreeCards: ${indexesOfThreeCards}`);
+            console.log('---------------------------------------------');
         }
         return indexesOfThreeCards;
     }

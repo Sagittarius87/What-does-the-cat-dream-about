@@ -34,21 +34,21 @@ export class Game extends Scene
         this.catPortrait = this.createCatPortrait(640, 250);
         this.add.existing(this.catPortrait);
 
-        //this.threeCards = this.createGameCards(430, 350, 640, 350, 850, 350, cards, 5);
+        //this.indexesOfThreeCards = this.createGameCards(430, 350, 640, 350, 850, 350, cards, 5);
         newGame = true
 
         const threeRandomCards = this.selectionThreeRandomCards(cards)
         console.log(`Three random cards: ${threeRandomCards}`)
 
         if (newGame == true) {
-            this.threeCards = this.createGameCards(430, 550, threeRandomCards[0]);
-            this.add.existing(this.threeCards);
+            this.indexesOfThreeCards = this.createGameCards(430, 550, threeRandomCards[0]);
+            this.add.existing(this.indexesOfThreeCards);
 
-            this.threeCards = this.createGameCards(640, 550, threeRandomCards[1]);
-            this.add.existing(this.threeCards);
+            this.indexesOfThreeCards = this.createGameCards(640, 550, threeRandomCards[1]);
+            this.add.existing(this.indexesOfThreeCards);
 
-            this.threeCards = this.createGameCards(850, 550, threeRandomCards[2]);
-            this.add.existing(this.threeCards);
+            this.indexesOfThreeCards = this.createGameCards(850, 550, threeRandomCards[2]);
+            this.add.existing(this.indexesOfThreeCards);
         }
 
 
@@ -105,16 +105,27 @@ export class Game extends Scene
 
     selectionThreeRandomCards(cards)
     {
-        let threeCards = [];
-        for (let i = 0; i < 3; i++) {
-            let indexOfCard = this.generatorOfRandomNumber(0, 8);
-            threeCards.push(indexOfCard);
-            console.log(`i: ${i}`)
-            console.log(`Three cards: ${threeCards}`);
-            console.log(`Index of random card: ${indexOfCard}`);
-            console.log(`Map found by index: ${cards.at(indexOfCard)}`);
+        let indexesOfThreeCards = [];
+        let indexesOfCards = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        for (let i = 0; indexesOfThreeCards.length < 3; i++) {
+            console.log(`-----Generate three random card number ${i}-----`);
+            let randomCardIndex = this.generatorOfRandomNumber(0, 8);
+            console.log(`indexesOfCards.includes(randomCardIndex): ${indexesOfCards.includes(randomCardIndex)}`);
+            if (indexesOfCards.includes(randomCardIndex)) {
+                indexesOfThreeCards.push(randomCardIndex);
+                let indexOfRandomCard = indexesOfCards.indexOf(randomCardIndex);
+                console.log(`indexOfRandomCard: ${indexOfRandomCard}`);
+                indexesOfCards.splice(indexOfRandomCard, 1);  
+            }
+            console.log(`indexesOfThreeCards: ${indexesOfThreeCards}`);
+            console.log(`indexesOfCards: ${indexesOfCards}`);
+            console.log(`randomCardIndex: ${randomCardIndex}`);
+            console.log(`New indexesOfCards: ${indexesOfCards}`);
+            console.log(`Three cards length: ${indexesOfThreeCards.length}`);
+            console.log(`Map found by index: ${cards.at(randomCardIndex)}`);
+            console.log('------------------------------------------------');
         }
-        return threeCards;
+        return indexesOfThreeCards;
     }
 
     generatorOfRandomNumber(min, max)

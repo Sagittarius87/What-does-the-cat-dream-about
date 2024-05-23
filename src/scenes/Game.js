@@ -35,10 +35,13 @@ export class Game extends Scene
         this.add.existing(this.catPortrait);
 
         //this.indexesOfThreeCards = this.createGameCards(430, 350, 640, 350, 850, 350, cards, 5);
-        newGame = true
+        newGame = true;
 
-        const threeRandomCards = this.selectionThreeRandomCards(cards)
-        console.log(`Three random cards: ${threeRandomCards}`)
+        let [threeRandomCards, hiddenCard] = this.selectionThreeRandomCards(cards);
+        console.log('-----Calling the method selectionThreeRandomCards-----');
+        console.log(`Three random cards: ${threeRandomCards}`);
+        console.log(`Hidden card: ${hiddenCard}`);
+        console.log('------------------------------------------------------');
 
         if (newGame == true) {
             this.indexesOfThreeCards = this.createGameCards(430, 550, threeRandomCards[0]);
@@ -126,14 +129,14 @@ export class Game extends Scene
             console.log(`indexesOfThreeCards: ${indexesOfThreeCards}`);
             console.log('---------------------------------------------');
         }
-        
+
         console.log('-----Choosing a hidden card-----');
         let indexOfHiddenCard = this.generatorOfRandomNumber(0, 2);
         console.log(`indexOfHiddenCard: ${indexOfHiddenCard}`);
         let hiddenCard = indexesOfThreeCards[indexOfHiddenCard];
         console.log(`hiddenCard: ${hiddenCard}`);
         console.log('--------------------------------'); 
-        return indexesOfThreeCards;
+        return [indexesOfThreeCards, hiddenCard];
     }
 
     generatorOfRandomNumber(min, max)

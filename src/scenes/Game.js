@@ -44,14 +44,14 @@ export class Game extends Scene
         console.log('------------------------------------------------------');
 
         if (newGame == true) {
-            this.indexesOfThreeCards = this.createGameCards(430, 550, threeRandomCards[0]);
-            this.add.existing(this.indexesOfThreeCards);
+            this.gameCard1 = this.createGameCards(430, 550, threeRandomCards[0]);
+            this.add.existing(this.gameCard1);         
 
-            this.indexesOfThreeCards = this.createGameCards(640, 550, threeRandomCards[1]);
-            this.add.existing(this.indexesOfThreeCards);
+            this.gameCard2 = this.createGameCards(640, 550, threeRandomCards[1]);
+            this.add.existing(this.gameCard2);
 
-            this.indexesOfThreeCards = this.createGameCards(850, 550, threeRandomCards[2]);
-            this.add.existing(this.indexesOfThreeCards);
+            this.gameCard3 = this.createGameCards(850, 550, threeRandomCards[2]);
+            this.add.existing(this.gameCard3);
         }
 
 

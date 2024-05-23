@@ -25,5 +25,11 @@ export class GameCards extends Phaser.GameObjects.Container
         this.add(this.randomCardImage);
         //this.add(this.randomCardImage2);
         //this.add(this.randomCardImage3);
+        this.setInteractive(new Phaser.Geom.Rectangle(-80, -128, 160, 256), Phaser.Geom.Rectangle.Contains).on(Phaser.Input.Events.GAMEOBJECT_POINTER_OVER, () => {
+            console.log('Mouse over on card')
+        });
+        this.setInteractive(new Phaser.Geom.Rectangle(-80, -128, 160, 256), Phaser.Geom.Rectangle.Contains).on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, () => {
+            console.log('Mouse click on card')
+        });
     }
 }

@@ -14,6 +14,7 @@ export class GameCards extends Phaser.GameObjects.Container
         this.x = x;
         this.y = y;
         this.randomCardTexture = randomCardTexture;
+        this.cardNumber = 0;
         //this.randomCardTexture2 = randomCardTexture2;
         //this.randomCardTexture3 = randomCardTexture3;
         //this.randomNumber = randomNumber;
@@ -26,10 +27,20 @@ export class GameCards extends Phaser.GameObjects.Container
         //this.add(this.randomCardImage2);
         //this.add(this.randomCardImage3);
         this.setInteractive(new Phaser.Geom.Rectangle(-80, -128, 160, 256), Phaser.Geom.Rectangle.Contains).on(Phaser.Input.Events.GAMEOBJECT_POINTER_OVER, () => {
-            console.log('Mouse over on card')
+            console.log('Mouse over on card');
         });
         this.setInteractive(new Phaser.Geom.Rectangle(-80, -128, 160, 256), Phaser.Geom.Rectangle.Contains).on(Phaser.Input.Events.GAMEOBJECT_POINTER_UP, () => {
-            console.log('Mouse click on card')
+            this.setCardNumber();
+            console.log('Mouse click on card');
         });
+    }
+    getCardNumber() {
+        
+        return this.cardNumber;
+    }
+    setCardNumber() {
+        this.cardNumber = this.randomCardTexture;
+        console.log(`randomCardTexture: ${this.randomCardTexture}`);
+        console.log(`cardNumber: ${this.cardNumber}`);
     }
 }

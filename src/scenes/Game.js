@@ -37,10 +37,10 @@ export class Game extends Scene
         //this.indexesOfThreeCards = this.createGameCards(430, 350, 640, 350, 850, 350, cards, 5);
         newGame = true;
 
-        let [threeRandomCards, hiddenCard] = this.selectionThreeRandomCards(cards);
+        let [threeRandomCards, hiddenCardName] = this.selectionThreeRandomCards(cards);
         console.log('-----Calling the method selectionThreeRandomCards-----');
         console.log(`Three random cards: ${threeRandomCards}`);
-        console.log(`Hidden card: ${hiddenCard}`);
+        console.log(`Hidden card name: ${hiddenCardName}`);
         console.log('------------------------------------------------------');
 
         if (newGame == true) {
@@ -53,6 +53,8 @@ export class Game extends Scene
             this.gameCard3 = this.createGameCards(850, 550, threeRandomCards[2]);
             this.add.existing(this.gameCard3);
         }
+
+        this.gameCard1.getCardNumber();
 
 
 
@@ -135,8 +137,10 @@ export class Game extends Scene
         console.log(`indexOfHiddenCard: ${indexOfHiddenCard}`);
         let hiddenCard = indexesOfThreeCards[indexOfHiddenCard];
         console.log(`hiddenCard: ${hiddenCard}`);
+        let hiddenCardName = cards.at(hiddenCard);
+        console.log(`hiddenCardName: ${hiddenCardName}`);
         console.log('--------------------------------'); 
-        return [indexesOfThreeCards, hiddenCard];
+        return [indexesOfThreeCards, hiddenCardName];
     }
 
     generatorOfRandomNumber(min, max)

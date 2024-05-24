@@ -21,5 +21,7 @@ export class ScoreLabel extends Phaser.GameObjects.Text
         
         //this.score = scene.add.text(this.x, this.y, formatScore(this.score), this.style).setOrigin(0.5);
         this.score = scene.add.bitmapText(this.x, this.y, this.nameFont, formatScore(this.score)).setOrigin(0.5);
+
+        
     }
 }
